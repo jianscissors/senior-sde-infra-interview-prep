@@ -26,10 +26,11 @@ Track each practice attempt — date, how long you took, and what you'd improve 
 | | | | | |
 
 ## Priority focus (based on background)
-Background: SDE II at AWS EBS Direct (multi-region deployment, operational excellence) and AWS EBS Data Lifecycle Manager (feature design, Java, Lambda, DynamoDB), plus earlier frontend/full-stack work (GWT→React migration, Recycle Bin 0→1). Weight practice time accordingly:
+Background: SDE II at AWS EBS Direct (multi-region service builds, CI/CD + infra provisioning via CloudFormation, monthly on-call rotations) and AWS EBS Data Lifecycle Manager (feature design in Java/OOD using Lambda, S3, DynamoDB, CFN; automated unit/integration/canary testing), plus earlier frontend/full-stack work (GWT→React migration, Recycle Bin 0→1 with a full CD pipeline and Game Day simulation testing). Weight practice time accordingly:
 
-- **Play to strength, go deep**: `02-infra-specific-design-questions/18-global-traffic-management-multi-region-failover.md`, `03-distributed-job-scheduler.md` (Lambda-style async orchestration), `15-config-management-dynamic-config.md`, `10-cicd-pipeline-system.md` — these map directly to real EBS Direct / DLM work, so interviewers will push hardest here expecting real depth.
-- **Storage-adjacent, worth extra reps**: `07-object-storage-system.md`, `08-distributed-file-system.md` — EBS itself is block storage, so "how would EBS's design differ from S3/HDFS" is a very likely probe.
+- **Play to strength, go deep**: `02-infra-specific-design-questions/18-global-traffic-management-multi-region-failover.md`, `03-distributed-job-scheduler.md` (Lambda-style async orchestration), `15-config-management-dynamic-config.md`, `10-cicd-pipeline-system.md` — these map directly to real EBS Direct / DLM work, so interviewers will push hardest here expecting real depth. The Game Day simulation experience is also direct ammunition for the "how do you test that failover actually works" follow-up in the multi-region-failover doc.
+- **Storage-adjacent, direct experience**: `07-object-storage-system.md` (hands-on S3 usage, not just adjacent), `08-distributed-file-system.md` — EBS itself is block storage, so "how would EBS's design differ from S3/HDFS" is a very likely probe and one you can answer from firsthand comparison.
+- **Testing/reliability practices to lean on**: canary testing experience is directly relevant to deployment-gating discussions in `10-cicd-pipeline-system.md` and canarying-config-changes points in `15-config-management-dynamic-config.md`; on-call rotation experience is real material for the previously-flagged on-call/paging behavioral gaps (see below).
 - **Gaps to shore up**: pure frontend background means less natural depth on `14-distributed-message-queue.md`, `04-distributed-lock-service.md`, `12-service-mesh-control-plane.md` — these need more deliberate study since they're not close to prior hands-on work.
 
 ## Behavioral stories prepared
@@ -49,7 +50,12 @@ Full stories in `star-stories.md`; cross-linked to specific prompts in `../inter
 | `#manager-feedback-bigger-picture` | hard feedback, how your approach to design has changed | N |
 | `#recycle-bin-backend-comms` | hard feedback, cross-team collaboration | N |
 
-**Known gaps (no story yet):** paging/alert-noise story, build-vs-buy decision, inheriting a bad system, deciding what NOT to work on, learning a new domain quickly, deprecating a widely-used system, capacity planning gone wrong, on-call sustainability. Also: expand the "DLM Console Migration" project highlight into a full STAR story for the zero-downtime-migration prompt.
+**Known gaps (no story yet):** build-vs-buy decision, inheriting a bad system, deciding what NOT to work on, learning a new domain quickly, deprecating a widely-used system, capacity planning gone wrong. Also: expand the "DLM Console Migration" project highlight into a full STAR story for the zero-downtime-migration prompt.
+
+**Gaps resolved by resume detail — draft these into full STAR stories before the interview, they currently only exist as one-line resume bullets, not stories:**
+- On-call/paging judgment and sustainability — you ran monthly on-call rotations at EBS Direct as "key contact... addressing issues to minimize downtime." Pick a specific incident from that rotation and turn it into a real STAR story; right now `star-stories.md` has nothing on-call-specific.
+- Postmortem — same on-call rotation is likely where a real postmortem example lives; pick one and add it to `star-stories.md`.
+- Resilience/failure-injection testing — the Recycle Bin project included "Game Day simulation testing," which is a strong, specific answer for "how do you test failover" or "prevented an incident before it happened" once turned into a full STAR story rather than a bullet.
 
 ## Weak areas (update after each practice session)
 

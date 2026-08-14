@@ -20,15 +20,15 @@ Each question below is tagged with the best-fit story from `../notes/star-storie
 - Tell me about the most significant production incident you've been involved in. What was your role, what did you do, what was the outcome?
   - ⭐ *your story:* `#archival-feature` (reframe around the monitoring/alerts/runbooks you set up, even though it's design-led rather than a live-fire incident — be upfront that it's not a true incident story if asked directly).
 - Describe a time you paged yourself or others in error, or a time an alert was too noisy — what did you do about it?
-  - *(no story yet — needs prep; this is a real gap since none of your prepared stories are on-call/paging-specific)*
+  - *Draft needed:* you ran monthly on-call rotations at EBS Direct as "key contact... addressing issues to minimize downtime" — pick a specific alert/page from that rotation and write it up in `../notes/star-stories.md`; it's real material, just not turned into a STAR story yet.
 - Tell me about a postmortem you wrote or participated in. What was the actual root cause, and what changed as a result?
-  - ⭐ *your story:* `#pipeline-fix-vs-bypass` (root cause was a dependency bug in another team's service; the change was adding canary checks and alarms).
+  - ⭐ *your story:* `#pipeline-fix-vs-bypass` (root cause was a dependency bug in another team's service; the change was adding canary checks and alarms). *Also draft:* a real postmortem from your EBS Direct on-call rotation, if you have one — closer to what "postmortem" usually means than a design-time story.
 - Describe a time you had to make a risky operational call (rollback, failover, take a system down) under time pressure.
   - ⭐ *your story:* `#pipeline-fix-vs-bypass` (fix-vs-bypass decision under deadline pressure on a region launch).
 - How do you decide what should page someone at 3am vs wait until morning?
   - *(no story yet — needs prep; answer from principles, e.g., customer-facing/data-loss-risk pages now, everything else waits)*
 - Tell me about a time you prevented an incident before it happened.
-  - ⭐ *your story:* `#adc-region-mistake` (added the CI/CD validation check that catches outdated/missing configs before deployment) or `#pipeline-fix-vs-bypass` (added canary checks/alarms).
+  - ⭐ *your story:* `#adc-region-mistake` (added the CI/CD validation check that catches outdated/missing configs before deployment) or `#pipeline-fix-vs-bypass` (added canary checks/alarms). *Also draft:* the Game Day simulation testing you ran for the Recycle Bin console is a stronger, more direct fit — it's literally proactive failure-finding — write it up as a full STAR story.
 
 ## Technical judgment & tradeoffs
 - Tell me about a time you chose a simpler solution over a more "correct" one, and how you justified that call.
@@ -74,7 +74,7 @@ Each question below is tagged with the best-fit story from `../notes/star-storie
 - Describe feedback you received that was hard to hear. What did you do with it?
   - ⭐ *your story:* `#manager-feedback-bigger-picture` or `#recycle-bin-backend-comms`.
 - Tell me about a time you had to learn a new domain/technology quickly to be effective.
-  - *(no strong story yet — `#dlm-console-ux` touches new UI-pattern territory but isn't really "new domain"; consider drafting one, e.g., ramping on AWS Lambda/DynamoDB for the archival feature)*
+  - *(no strong story yet — `#dlm-console-ux` touches new UI-pattern territory but isn't really "new domain"; consider drafting one, e.g., ramping on AWS Lambda/DynamoDB/CloudFormation for the archival feature, or on canary/automated-testing practices for DLM feature QA)*
 - How has your approach to system design changed over your career?
   - ⭐ *your story:* `#manager-feedback-bigger-picture`.
 - Tell me about a time you mentored someone through a hard technical problem, without just giving them the answer.
@@ -90,7 +90,7 @@ Each question below is tagged with the best-fit story from `../notes/star-storie
 - Tell me about a time capacity planning went wrong (under- or over-provisioned) and what you did.
   - *(no story yet — needs prep)*
 - How do you approach on-call load and sustainability for a team you're on or leading technically?
-  - *(no story yet — needs prep)*
+  - *Draft needed:* you have direct monthly on-call rotation experience at EBS Direct — answer from that experience directly rather than from principles alone, and consider pairing with the Recycle Bin Game Day simulation testing work (proactive resilience testing reduces reactive on-call load) once written up in `../notes/star-stories.md`.
 
 ## Prep checklist
 - For every story: know the concrete numbers (scale, time saved, incident duration, blast radius) — vague stories read as junior.
