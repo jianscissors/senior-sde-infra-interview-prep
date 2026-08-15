@@ -92,6 +92,26 @@ Each question below is tagged with the best-fit story from `../notes/star-storie
 - How do you approach on-call load and sustainability for a team you're on or leading technically?
   - *Draft needed:* you have direct monthly on-call rotation experience at EBS Direct — answer from that experience directly rather than from principles alone, and consider pairing with the Recycle Bin Game Day simulation testing work (proactive resilience testing reduces reactive on-call load) once written up in `../notes/star-stories.md`.
 
+## Current-role / career-narrative questions (SRE → SDE transition)
+Current role: SRE on the Cloud Network team at Alibaba Cloud, on-call across multiple cloud networking components (VPC/SLB/NAT/routing-type products). This is a title-vs-function mismatch interviewers will probe directly — the plan below is how to frame it so it reads as a deliberate, forward-looking move rather than "couldn't cut it as SRE" or "just wants an easier job."
+
+**Framing principles:**
+- Don't frame it as escaping SRE/on-call — frame it as choosing to spend more time *building* systems that prevent problems over *operating* systems that already exist. Neutral-to-positive language about the current role; never "I hated on-call" or "ops work is beneath me."
+- Turn the breadth of on-call across many cloud network components into a strength for infra SDE interviews specifically: it's real, hands-on exposure to distributed systems failure modes, network debugging, and reliability engineering — a direct match for the `system-design-fundamentals/06-networking-and-protocols.md` and `system-design-fundamentals/10-reliability-and-resilience.md` material, and for `interview-questions/02-infra-specific-design-questions/18-global-traffic-management-multi-region-failover.md` / `19-distributed-tracing-ingestion-pipeline.md` / `05-metrics-monitoring-pipeline.md`. Bring real (sanitized) war stories from this role into those design discussions — a genuine incident beats a textbook answer.
+- The strongest evidence for the transition is a concrete example of *building*, not just operating, during the SRE role — an automation tool, a self-healing/remediation system, a diagnostic tool, an alerting/runbook improvement that reduced toil or MTTR. This is the single most important story to have polished; without it, "I want to build" is just a claim.
+
+**Questions to prepare for:**
+- Tell me about your current role and what you're responsible for.
+  - *Draft needed:* one or two sentences on scope (which cloud network components, what on-call coverage means concretely — page volume, severity mix, team size) — keep it crisp, this is context-setting, not the main story.
+- Why are you looking to move from an SRE role back into a pure SDE role?
+  - *Draft needed:* use the framing above — lead with what you want to move toward (building systems that prevent the class of problems you've been operating), not what you want to move away from.
+- As an SRE across many components, how do you prioritize which fires to fight first?
+  - ⭐ *transferable:* this is really an incident-triage/prioritization-under-ambiguity question — `#ambiguous-failure-handling` demonstrates the same underlying skill (mapping failure points and dependencies to make a call), reframe it alongside a live example from current on-call if you have one.
+- Tell me about a tool or automation you built to reduce on-call toil, or to fix a recurring problem instead of just responding to it each time.
+  - *Draft needed — highest priority story to write.* This is your primary evidence for the SRE→SDE narrative. Needs: what kept recurring, what you built, and a concrete before/after metric (e.g., page volume, MTTR, manual-toil hours saved). Add it to `../notes/star-stories.md` as `#cloud-network-automation` once you have the specifics.
+- Are you worried you'll want to go back to an SRE/ops-heavy role later, or that you'll get bored of pure feature/system-building work?
+  - *Draft needed:* a short, confident answer on what draws you to SDE work long-term (e.g., wanting full ownership of the build lifecycle, not just the operate phase) — don't over-explain or sound defensive; this should be a 15-second answer, not a essay.
+
 ## Prep checklist
 - For every story: know the concrete numbers (scale, time saved, incident duration, blast radius) — vague stories read as junior.
 - Practice the "what would you do differently" follow-up for every story — interviewers almost always ask it, and "nothing" is a red flag at senior level.

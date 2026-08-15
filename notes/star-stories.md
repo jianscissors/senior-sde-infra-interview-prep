@@ -184,6 +184,22 @@ Your prepared behavioral stories, cleaned up into consistent STAR format. Each s
 
 ---
 
+## #cloud-network-automation — [TODO: fill in] Automation/Tooling Built During Cloud Network SRE On-Call (Alibaba Cloud)
+
+**Status:** placeholder — this is the highest-priority story to complete. It's the main evidence for the SRE→SDE narrative (see `../interview-questions/03-behavioral-and-leadership-questions.md` → "Current-role / career-narrative questions"). Fill in with a real example before using it in an interview.
+
+**Situation:** *(TODO — which cloud network component(s) were you on-call for, and what problem kept recurring? e.g., a specific class of alert/incident that showed up repeatedly across VPC/SLB/NAT/routing.)*
+
+**Task:** *(TODO — what were you responsible for fixing, and why was the recurring nature of the problem worth solving structurally instead of just responding each time?)*
+
+**Action:** *(TODO — what did you actually build? e.g., an automated diagnostic tool, a self-healing/remediation script, an alerting or runbook improvement, a dashboard that surfaced root cause faster. Be specific about the mechanism, not just "I automated it.")*
+
+**Result:** *(TODO — concrete before/after metric: page volume reduced, MTTR reduced, manual toil-hours saved, or similar. Vague results read as junior — get real numbers even if approximate.)*
+
+**Good for:** the SRE→SDE transition narrative specifically, "tool/automation to reduce toil" prompt, "identified a problem nobody asked you to solve," ownership beyond assigned scope.
+
+---
+
 ## Project highlights (for quick framing/context, not full STAR)
 - **Archival Feature Launch** — storage archival solution moving infrequently accessed data to lower-cost tiers, cutting customer storage costs and increasing service adoption, with 99.99% availability.
 - **Multi-Region Build** — led design and implementation of a multi-region deployment framework for an AWS service, enabling automatic rollout across 5+ regions with built-in health checks and rollback, strengthening global reliability and speeding future feature delivery.
