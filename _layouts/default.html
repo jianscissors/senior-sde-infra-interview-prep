@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+
+    {% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <style>
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+      }
+      .site-nav a {
+        color: #fff;
+        opacity: 0.85;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .site-nav a:hover { opacity: 1; text-decoration: underline; }
+      .site-nav a.active {
+        opacity: 1;
+        border-bottom: 2px solid #fff;
+        padding-bottom: 2px;
+      }
+      .breadcrumbs {
+        font-size: 0.85rem;
+        color: #606c71;
+        margin-bottom: 1.75rem;
+        line-height: 1.6;
+      }
+      .breadcrumbs a { color: #1e6bb8; text-decoration: none; }
+      .breadcrumbs a:hover { text-decoration: underline; }
+      .breadcrumbs .current { color: #606c71; font-weight: 600; }
+      .breadcrumbs .sep { margin: 0 0.45em; color: #c8ccd0; }
+    </style>
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+    {% if site.google_analytics %}
+      <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+      </script>
+    {% endif %}
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      {% if site.show_downloads %}
+        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+      {% endif %}
+      <nav class="site-nav" aria-label="Site sections">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a>
+        <a href="{{ '/system-design-fundamentals/' | relative_url }}"{% if page.url contains '/system-design-fundamentals/' %} class="active"{% endif %}>Fundamentals</a>
+        <a href="{{ '/interview-questions/' | relative_url }}"{% if page.url contains '/interview-questions/' %} class="active"{% endif %}>Interview Questions</a>
+        <a href="{{ '/notes/' | relative_url }}"{% if page.url contains '/notes/' %} class="active"{% endif %}>Notes</a>
+      </nav>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {% unless page.url == "/" or page.url == "/index.html" %}
+        {% assign url_size = page.url | size %}
+        {% assign last_char = page.url | slice: -1, 1 %}
+        {% if last_char == "/" %}
+          {% assign trimmed_size = url_size | minus: 1 %}
+          {% assign clean_url = page.url | slice: 0, trimmed_size %}
+        {% else %}
+          {% assign clean_url = page.url %}
+        {% endif %}
+        {% assign parts = clean_url | split: "/" %}
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          {% assign built = "" %}
+          {% for part in parts %}
+            {% if part != "" %}
+              {% assign built = built | append: "/" | append: part %}
+              <span class="sep">&rsaquo;</span>
+              {% if forloop.last %}
+                <span class="current">{{ page.title | default: part }}</span>
+              {% else %}
+                {% case part %}
+                  {% when "system-design-fundamentals" %}
+                    {% assign label = "Fundamentals" %}
+                  {% when "interview-questions" %}
+                    {% assign label = "Interview Questions" %}
+                  {% when "notes" %}
+                    {% assign label = "Notes" %}
+                  {% when "01-classic-system-design-questions" %}
+                    {% assign label = "Classic System Design" %}
+                  {% when "02-infra-specific-design-questions" %}
+                    {% assign label = "Infra-Specific Design" %}
+                  {% else %}
+                    {% assign label = part %}
+                {% endcase %}
+                <a href="{{ built | append: '/' | relative_url }}">{{ label }}</a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </nav>
+      {% endunless %}
+
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+        <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
