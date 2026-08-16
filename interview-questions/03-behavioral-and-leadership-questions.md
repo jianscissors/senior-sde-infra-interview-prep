@@ -104,11 +104,11 @@ Current role: SRE on the Cloud Network team at Alibaba Cloud, on-call across mul
 - Tell me about your current role and what you're responsible for.
   - *Draft needed:* one or two sentences on scope (which cloud network components, what on-call coverage means concretely — page volume, severity mix, team size) — keep it crisp, this is context-setting, not the main story.
 - Why are you looking to move from an SRE role back into a pure SDE role?
-  - *Draft needed:* use the framing above — lead with what you want to move toward (building systems that prevent the class of problems you've been operating), not what you want to move away from.
+  - ⭐ *your story:* lead with `#cloud-network-automation` as proof rather than just asserting the preference — the LB error-classification tool is a concrete example of what you actually gravitate toward (building a system that structurally fixed a recurring problem) even while operating in an SRE role, which is more convincing than saying "I want to build" on its own.
 - As an SRE across many components, how do you prioritize which fires to fight first?
   - ⭐ *transferable:* this is really an incident-triage/prioritization-under-ambiguity question — `#ambiguous-failure-handling` demonstrates the same underlying skill (mapping failure points and dependencies to make a call), reframe it alongside a live example from current on-call if you have one.
 - Tell me about a tool or automation you built to reduce on-call toil, or to fix a recurring problem instead of just responding to it each time.
-  - *Draft needed — highest priority story to write.* This is your primary evidence for the SRE→SDE narrative. Needs: what kept recurring, what you built, and a concrete before/after metric (e.g., page volume, MTTR, manual-toil hours saved). Add it to `../notes/star-stories.md` as `#cloud-network-automation` once you have the specifics.
+  - ⭐ *your story:* `#cloud-network-automation` — this is your primary evidence for the SRE→SDE narrative; lead with it. LB upgrade/change errors had no SOP or error-code classification, you built an automated diagnosis tool, and rolled it out to the rest of the SRE team. Concrete numbers: weekly investigation time dropped from ~2 days to ~5 minutes; SDE offload rate rose from 50% to 90%.
 - Are you worried you'll want to go back to an SRE/ops-heavy role later, or that you'll get bored of pure feature/system-building work?
   - *Draft needed:* a short, confident answer on what draws you to SDE work long-term (e.g., wanting full ownership of the build lifecycle, not just the operate phase) — don't over-explain or sound defensive; this should be a 15-second answer, not a essay.
 

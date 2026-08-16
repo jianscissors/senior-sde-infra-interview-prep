@@ -184,19 +184,20 @@ Your prepared behavioral stories, cleaned up into consistent STAR format. Each s
 
 ---
 
-## #cloud-network-automation — [TODO: fill in] Automation/Tooling Built During Cloud Network SRE On-Call (Alibaba Cloud)
+## #cloud-network-automation — Automated Diagnosis Tool for LB Upgrade/Change Errors (Alibaba Cloud)
 
-**Status:** placeholder — this is the highest-priority story to complete. It's the main evidence for the SRE→SDE narrative (see `../interview-questions/03-behavioral-and-leadership-questions.md` → "Current-role / career-narrative questions"). Fill in with a real example before using it in an interview.
+**Situation:** As an SRE on the Cloud Network team at Alibaba Cloud, on-call for the load balancer (LB) product and its controller. Errors triggered by LB upgrades/changes were a recurring, messy category of on-call issues — there was no unified SOP and no error-code classification, so every occurrence meant manually digging through logs and communicating back and forth with the owning SDE team to figure out what had actually gone wrong. This meant a large share of these issues had to escalate to SDEs, adding to their on-call load for problems that didn't all strictly need their involvement.
 
-**Situation:** *(TODO — which cloud network component(s) were you on-call for, and what problem kept recurring? e.g., a specific class of alert/incident that showed up repeatedly across VPC/SLB/NAT/routing.)*
+**Task:** Reduce how often LB upgrade/change errors needed to escalate to SDEs — build a way for the SRE team to classify and resolve more of these directly, offloading SDE on-call instead of just absorbing the manual investigation cost every time.
 
-**Task:** *(TODO — what were you responsible for fixing, and why was the recurring nature of the problem worth solving structurally instead of just responding each time?)*
+**Action:**
+- Started by manually investigating the backlog of past incidents and communicating with SDEs to build up a working understanding of the actual root-cause categories behind these errors, since no classification existed yet.
+- Turned that understanding into a defined error-code taxonomy and built an automated diagnosis/analysis tool ("skill") on top of it, so a new incident could be automatically classified against known error patterns instead of a human re-deriving the root cause from scratch every time.
+- Rolled the tool out and quickly trained/enabled other SREs on the team to use it, rather than keeping it as a personal workaround.
 
-**Action:** *(TODO — what did you actually build? e.g., an automated diagnostic tool, a self-healing/remediation script, an alerting or runbook improvement, a dashboard that surfaced root cause faster. Be specific about the mechanism, not just "I automated it.")*
+**Result:** Weekly manual investigation/statistics time dropped from about two days per week to about five minutes; the offload rate (share of LB upgrade/change issues the SRE team could resolve without escalating to SDEs) rose from 50% to 90%.
 
-**Result:** *(TODO — concrete before/after metric: page volume reduced, MTTR reduced, manual toil-hours saved, or similar. Vague results read as junior — get real numbers even if approximate.)*
-
-**Good for:** the SRE→SDE transition narrative specifically, "tool/automation to reduce toil" prompt, "identified a problem nobody asked you to solve," ownership beyond assigned scope.
+**Good for:** the SRE→SDE transition narrative's primary evidence story — this is the one to lead with (see `../interview-questions/03-behavioral-and-leadership-questions.md` → "Current-role / career-narrative questions"); "tool/automation to reduce toil"; "identified a problem nobody asked you to solve" (no SOP/classification existed before this); ownership beyond assigned scope; turning ambiguity into a systematic taxonomy; scaling your own impact by enabling teammates rather than just yourself.
 
 ---
 
